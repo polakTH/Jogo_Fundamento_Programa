@@ -1,10 +1,16 @@
 #include "Jogo.h"
 
-Jogo::Jogo(): window(sf::VideoMode(800, 400), "Jogo"), shape(sf::Vector2f(100.0f, 100.0f))
+Jogo::Jogo(): window(sf::VideoMode(800, 400), "Jogo")
 {
-	shape.setPosition(sf::Vector2f(400.0f, 200.0f));
-	shape.setFillColor(sf::Color::Magenta);
+    jogador1 = new Jogador();
+    jogador1->SetWindow(&window);
+    fase1 = new Fase(jogador1,&window);
+    LEs = fase1->getListaEntidades();
     Executar();
+}
+
+Jogo::~Jogo()
+{
 }
 
 void Jogo::Executar()
@@ -17,24 +23,14 @@ void Jogo::Executar()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        {
-            shape.move(sf::Vector2f(0.1f, 0.0f));
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-        {
-            shape.move(sf::Vector2f(-0.1f, 0.0f));
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-        {
-            shape.move(sf::Vector2f(0.0f, -0.1f));
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-        {
-            shape.move(sf::Vector2f(0.0f, 0.1f));
-        }
+        
+        jogador1->Move();
         window.clear();
-        window.draw(shape);
+        for(int i = 0; i < LEs->LEs.Length();i++)
+        {
+            Entidade* temp = LEs->LEs.getItem(i);
+            temp->draw();
+        }
         window.display();
     }
 }
