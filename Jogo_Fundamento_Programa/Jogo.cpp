@@ -8,7 +8,8 @@ Jogo::Jogo()
     jogador1->setGerenciador(gerenciador_graf);
     jogador2 = new Jogador(false);
     jogador2->setGerenciador(gerenciador_graf);
-    fase1 = new Fase_1(jogador1, jogador2, gerenciador_graf);
+    //fase1 = new Fase_1(jogador1, jogador2, gerenciador_graf);
+    menu = new Menu(gerenciador_graf);
     Executar();
 }
 
@@ -28,6 +29,7 @@ void Jogo::Executar()
             if (event.type == sf::Event::Closed)
                 gerenciador_graf->window->close();
         }
-        fase1->Executar();
+        //fase1->Executar();
+        menu->Executar();
     }
 }

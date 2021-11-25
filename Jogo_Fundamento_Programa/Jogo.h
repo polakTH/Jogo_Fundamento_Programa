@@ -8,6 +8,7 @@
 #include "Gerenciador_Colisões.h"
 #include <SFML/Audio.hpp>
 #include "Fase_1.h"
+#include "Menu.h"
 class Jogo
 {
 private:
@@ -16,6 +17,7 @@ private:
 	Gerenciador_Grafico* gerenciador_graf;
 	Gerenciador_Colisões* gerenciador_colid;
 	Fase* fase1;
+	Menu* menu;
 public:
 	Jogo();
 	~Jogo();
