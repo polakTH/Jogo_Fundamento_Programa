@@ -27,8 +27,6 @@ void Jogo::Executar()
             if (event.type == sf::Event::Closed)
                 gerenciador_graf->window->close();
         }
-        jogador1->Move();
-        jogador2->Move();
         gerenciador_graf->window->clear();
         for(int i = 0; i < LEs->LEs.Length();i++)
         {
@@ -36,6 +34,12 @@ void Jogo::Executar()
             temp->Executar();
             sf::RectangleShape* shape = temp->getSprite();
             gerenciador_graf->window->draw(*shape);
+        }
+        if(gerenciador_colid->Colidindo(jogador1,jogador2))
+        {
+            sf::CircleShape shape(100.f);
+            shape.setFillColor(sf::Color::Green);
+            gerenciador_graf->window->draw(shape);
         }
         gerenciador_graf->window->display();
 

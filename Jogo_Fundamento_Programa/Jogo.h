@@ -5,6 +5,8 @@
 #include "ListaEntidades.h"
 #include "Fase.h"
 #include "Gerenciador_Grafico.h"
+#include "Gerenciador_Colisões.h"
+#include <SFML/Audio.hpp>
 class Jogo
 {
 private:
@@ -12,6 +14,7 @@ private:
 	Jogador* jogador2;
 	ListaEntidades* LEs;
 	Gerenciador_Grafico* gerenciador_graf;
+	Gerenciador_Colisões* gerenciador_colid;
 	Fase* fase1;
 public:
 	Jogo();
