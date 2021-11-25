@@ -12,14 +12,14 @@
 class Fase :
 	public Ente
 {
-private:
+protected:
 	ListaEntidades *listaEntidades;
 	Jogador* j1;
 	Jogador* j2;
 	Gerenciador_Colisões* gerenciador_Colid;
 public:
 	Obstaculo* chao;
-	Fase(Jogador* j1,Jogador* j2,Gerenciador_Grafico* gerenciador);
+	Fase();
 	~Fase();
 	void Imprimir_se();
 	void Executar();

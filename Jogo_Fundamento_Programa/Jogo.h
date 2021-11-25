@@ -7,6 +7,7 @@
 #include "Gerenciador_Grafico.h"
 #include "Gerenciador_Colisões.h"
 #include <SFML/Audio.hpp>
+#include "Fase_1.h"
 class Jogo
 {
 private:
