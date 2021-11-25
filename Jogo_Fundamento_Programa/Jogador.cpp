@@ -2,6 +2,7 @@
 
 Jogador::Jogador(bool jogador1)
 {
+    num_vidas = 3;
     this->Jogador1 = jogador1;
     if (jogador1)
     {
@@ -67,7 +68,7 @@ void Jogador::Move()
 void Jogador::Executar()
 {
     Move();
-    Entidade::Executar();
+    Personagem::Executar();
 }
 
 

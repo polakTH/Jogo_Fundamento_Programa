@@ -1,7 +1,8 @@
 #pragma once
 #include "Entidade.h"
+#include "Personagem.h"
 class Jogador :
-    public Entidade
+    public Personagem
 {
 private:
     bool Jogador1;

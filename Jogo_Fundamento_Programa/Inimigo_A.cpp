@@ -86,5 +86,5 @@ void Inimigo_A::Executar()
 			y -= 0.05f;
 		}
 	}
-	Entidade::Executar();
+	Personagem::Executar();
 }
