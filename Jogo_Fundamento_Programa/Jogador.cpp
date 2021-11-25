@@ -16,6 +16,7 @@ Jogador::Jogador(bool jogador1)
         y = 250;
         sprite.setFillColor(sf::Color::Yellow);
     }
+    velocidadeMax = 0.08f;
     alvo = nullptr;
 }
 
@@ -29,11 +30,11 @@ void Jogador::Move()
     {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         {
-            x += 0.1f;
+            velocidadeHorizontal += 0.001f;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         {
-            x -= 0.1f;
+            velocidadeHorizontal -= 0.001f;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && noChao)
         {
@@ -44,11 +45,11 @@ void Jogador::Move()
     {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
-            x += 0.1f;
+            velocidadeHorizontal += 0.001f;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
-            x -= 0.1f;
+            velocidadeHorizontal -= 0.001f;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && noChao)
         {

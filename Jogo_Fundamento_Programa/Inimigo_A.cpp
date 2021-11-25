@@ -77,7 +77,7 @@ void Inimigo_A::Executar()
 		{
 			x -= 0.05f;
 		}
-		if (alvo->y < y && noChao)
+		if (alvo->y < y - sprite.getSize().y/2 && noChao)
 		{
 			velocidadeVertical = -0.1f;
 		}

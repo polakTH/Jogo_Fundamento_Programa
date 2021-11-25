@@ -10,6 +10,8 @@ public:
 	float x;
 	float y;
 	float velocidadeVertical;
+	float velocidadeHorizontal;
+	float velocidadeMax;
 	bool capturado;
 	bool noChao;
 	Entidade();
