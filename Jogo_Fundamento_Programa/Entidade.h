@@ -13,6 +13,7 @@ public:
 	float velocidadeHorizontal;
 	float velocidadeMax;
 	bool capturado;
+	bool morto;
 	bool noChao;
 	Entidade();
 	~Entidade();

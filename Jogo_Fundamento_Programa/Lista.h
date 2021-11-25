@@ -10,15 +10,30 @@ public:
 	Lista();
 	~Lista();
 	int Length() { return length; }
-	TL* getItem(int ID)
+	TL* getItem(int pos)
 	{
 		Elemento<TL>* temp = pPrimeiro;
 		if (temp == nullptr)return nullptr;
-		if(ID == 0)
+		if(pos == 0)
 		{
 			return temp->getItem();
 		}
-		for(int i = 0; i < ID; i++)
+		for(int i = 0; i < pos; i++)
+		{
+			temp = temp->getProx();
+			if (temp == nullptr)return nullptr;
+		}
+		return temp->getItem();
+	}
+	TL* getItemByID(int ID)
+	{
+		Elemento<TL>* temp = pPrimeiro;
+		if (temp == nullptr)return nullptr;
+		if (ID == temp->getItem().ID)
+		{
+			return temp->getItem();
+		}
+		while(ID != temp->getItem().ID)
 		{
 			temp = temp->getProx();
 			if (temp == nullptr)return nullptr;

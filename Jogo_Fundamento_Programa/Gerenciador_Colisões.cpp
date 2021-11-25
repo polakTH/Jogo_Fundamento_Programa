@@ -25,3 +25,6 @@ bool Gerenciador_Colisões::Colidindo(Entidade* eu, Entidade* alvo)
 	}
 	return true;
 }
+
+
+

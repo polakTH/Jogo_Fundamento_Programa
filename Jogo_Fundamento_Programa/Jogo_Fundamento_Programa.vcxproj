@@ -152,12 +152,14 @@
     <ClCompile Include="Gerenciador_Grafico.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Inimigo_A.cpp" />
+    <ClCompile Include="Inimigo_B.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="Jogo_Fundamento_Programa.cpp" />
     <ClCompile Include="ListaEntidades.cpp" />
     <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Personagem.cpp" />
+    <ClCompile Include="Projétil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Elemento.h" />
@@ -168,12 +170,14 @@
     <ClInclude Include="Gerenciador_Grafico.h" />
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Inimigo_A.h" />
+    <ClInclude Include="Inimigo_B.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidades.h" />
     <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Personagem.h" />
+    <ClInclude Include="Projétil.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

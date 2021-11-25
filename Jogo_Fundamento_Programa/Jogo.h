@@ -12,7 +12,6 @@ class Jogo
 private:
 	Jogador* jogador1;
 	Jogador* jogador2;
-	ListaEntidades* LEs;
 	Gerenciador_Grafico* gerenciador_graf;
 	Gerenciador_Colisões* gerenciador_colid;
 	Fase* fase1;

@@ -18,6 +18,19 @@ void Inimigo_A::AtualizarAlvo()
 	float DistanciaY = 0;
 	float DistanciaX2 = 0;
 	float DistanciaY2 = 0;
+	if (alvo != nullptr && alvo->morto)alvo = nullptr;
+	if (jogador1 != nullptr && jogador1->morto)jogador1 = nullptr;
+	if (jogador2 != nullptr && jogador2->morto)jogador2 = nullptr;
+	if(jogador1 == nullptr && jogador2 != nullptr)
+	{
+		alvo = jogador2;
+		return;
+	}
+	if (jogador1 != nullptr && jogador2 == nullptr)
+	{
+		alvo = jogador1;
+		return;
+	}
 	if(jogador1 != nullptr)
 	{
 		if(jogador1->x > x)
@@ -67,20 +80,25 @@ void Inimigo_A::AtualizarAlvo()
 void Inimigo_A::Executar()
 {
 	AtualizarAlvo();
-	if (alvo != nullptr)
+	if (alvo != nullptr && !capturado)
 	{
 		if (alvo->x > x)
 		{
-			x += 0.05f;
+			x += 0.025f;
 		}
 		else if (alvo->x < x)
 		{
-			x -= 0.05f;
+			x -= 0.025f;
 		}
-		if (alvo->y < y - sprite.getSize().y/2 && noChao)
+		if (alvo->y < y)
 		{
-			velocidadeVertical = -0.1f;
+			y -= 0.025f;;
+		}
+		else if (alvo->y > y)
+		{
+			y += 0.025f;
 		}
 	}
-	Personagem::Executar();
+	Inimigo::Executar();
+	velocidadeVertical = 0;
 }

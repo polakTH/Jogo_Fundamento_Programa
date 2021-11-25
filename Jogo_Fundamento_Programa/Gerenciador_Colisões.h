@@ -8,5 +8,6 @@ private:
 public:
 	Gerenciador_Colisões();
 	bool Colidindo(Entidade* eu, Entidade* alvo);
+	void Colidir(Entidade* eu, Entidade* alvo);
 };
 

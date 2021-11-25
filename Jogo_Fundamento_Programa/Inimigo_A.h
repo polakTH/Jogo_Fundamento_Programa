@@ -6,9 +6,6 @@ class Inimigo_A :
     public Inimigo
 {
 private:
-    Jogador* alvo;
-    Jogador* jogador1;
-    Jogador* jogador2;
 public:
     Inimigo_A(Jogador* jogador1, Jogador* jogador2);
     ~Inimigo_A();

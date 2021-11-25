@@ -1,6 +1,8 @@
 #include "Ente.h"
 Ente::Ente()
 {
+	ID = -1;
+	gerenciador = nullptr;
 }
 
 Ente::~Ente()

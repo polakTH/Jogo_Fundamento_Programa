@@ -13,7 +13,7 @@ Jogador::Jogador(bool jogador1)
     else
     {
         x = 400;
-        y = 250;
+        y = 450;
         sprite.setFillColor(sf::Color::Yellow);
     }
     velocidadeMax = 0.08f;
@@ -30,11 +30,11 @@ void Jogador::Move()
     {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         {
-            velocidadeHorizontal += 0.001f;
+            velocidadeHorizontal += 0.08f;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         {
-            velocidadeHorizontal -= 0.001f;
+            velocidadeHorizontal -= 0.08f;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && noChao)
         {
@@ -45,16 +45,24 @@ void Jogador::Move()
     {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
-            velocidadeHorizontal += 0.001f;
+            velocidadeHorizontal += 0.08f;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
-            velocidadeHorizontal -= 0.001f;
+            velocidadeHorizontal -= 0.08f;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && noChao)
         {
             velocidadeVertical = -0.1f;
         }
+    }
+    if(velocidadeHorizontal > velocidadeMax)
+    {
+        velocidadeHorizontal = velocidadeMax;
+    }
+    else if(velocidadeHorizontal < -velocidadeMax)
+    {
+        velocidadeHorizontal = -velocidadeMax;
     }
 }
 
