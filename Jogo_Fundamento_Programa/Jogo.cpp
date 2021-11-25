@@ -1,10 +1,13 @@
 #include "Jogo.h"
 
-Jogo::Jogo(): window(sf::VideoMode(800, 400), "Jogo")
+Jogo::Jogo()
 {
-    jogador1 = new Jogador();
-    jogador1->SetWindow(&window);
-    fase1 = new Fase(jogador1,&window);
+    gerenciador_graf = new Gerenciador_Grafico();
+    jogador1 = new Jogador(true);
+    jogador1->setGerenciador(gerenciador_graf);
+    jogador2 = new Jogador(false);
+    jogador2->setGerenciador(gerenciador_graf);
+    fase1 = new Fase(jogador1, jogador2, gerenciador_graf);
     LEs = fase1->getListaEntidades();
     Executar();
 }
@@ -15,22 +18,26 @@ Jogo::~Jogo()
 
 void Jogo::Executar()
 {
-    while (window.isOpen())
+    while (gerenciador_graf->window->isOpen())
     {
+        
         sf::Event event;
-        while (window.pollEvent(event))
+        while (gerenciador_graf->window->pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
-                window.close();
+                gerenciador_graf->window->close();
         }
-        
         jogador1->Move();
-        window.clear();
+        jogador2->Move();
+        gerenciador_graf->window->clear();
         for(int i = 0; i < LEs->LEs.Length();i++)
         {
             Entidade* temp = LEs->LEs.getItem(i);
-            temp->draw();
+            temp->Executar();
+            sf::RectangleShape* shape = temp->getSprite();
+            gerenciador_graf->window->draw(*shape);
         }
-        window.display();
+        gerenciador_graf->window->display();
+
     }
 }

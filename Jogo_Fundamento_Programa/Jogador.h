@@ -4,9 +4,12 @@ class Jogador :
     public Entidade
 {
 private:
+    bool Jogador1;
 public:
-    Jogador();
+    Entidade* alvo;
+    Jogador(bool jogador1);
     ~Jogador();
     void Move();
+    void Executar();
 };
 

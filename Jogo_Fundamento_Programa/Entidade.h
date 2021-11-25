@@ -1,15 +1,20 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-class Entidade
+#include "Ente.h"
+class Entidade : 
+	public Ente
 {
 protected:
-	sf::RectangleShape body;
-	sf::RenderWindow *window;
+	sf::RectangleShape sprite;
 public:
+	float x;
+	float y;
+	bool capturado;
 	Entidade();
 	~Entidade();
 
-	void SetWindow(sf::RenderWindow* window) { this->window = window; }
-	void draw() { window->draw(body); }
+	virtual void Executar();
+	void Imprimir_se();
+	sf::RectangleShape* getSprite() { return &sprite; }
 };
 

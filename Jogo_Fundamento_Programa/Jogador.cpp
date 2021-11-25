@@ -1,9 +1,21 @@
 #include "Jogador.h"
 
-Jogador::Jogador()
+Jogador::Jogador(bool jogador1)
 {
-    body.setPosition(sf::Vector2f(400.0f, 200.0f));
-    body.setFillColor(sf::Color::Magenta);
+    this->Jogador1 = jogador1;
+    if (jogador1)
+    {
+        x = 400;
+        y = 150;
+        sprite.setFillColor(sf::Color::Magenta);
+    }
+    else
+    {
+        x = 400;
+        y = 250;
+        sprite.setFillColor(sf::Color::Yellow);
+    }
+    alvo = nullptr;
 }
 
 Jogador::~Jogador()
@@ -12,20 +24,50 @@ Jogador::~Jogador()
 
 void Jogador::Move()
 {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    if (Jogador1)
     {
-        body.move(sf::Vector2f(0.1f, 0.0f));
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+        {
+            x += 0.1f;
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+        {
+            x -= 0.1f;
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+        {
+            y -= 0.1f;
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+        {
+            y += 0.1f;
+        }
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+    else
     {
-        body.move(sf::Vector2f(-0.1f, 0.0f));
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-    {
-        body.move(sf::Vector2f(0.0f, -0.1f));
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-    {
-        body.move(sf::Vector2f(0.0f, 0.1f));
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        {
+            x += 0.1f;
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        {
+            x -= 0.1f;
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        {
+            y -= 0.1f;
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+        {
+            y += 0.1f;
+        }
     }
 }
+
+void Jogador::Executar()
+{
+    Move();
+    Entidade::Executar();
+}
+
+
