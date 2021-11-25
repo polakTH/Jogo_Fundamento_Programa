@@ -28,20 +28,23 @@ void Jogo::Executar()
                 gerenciador_graf->window->close();
         }
         gerenciador_graf->window->clear();
-        for(int i = 0; i < LEs->LEs.Length();i++)
+        for(int i = 0; i < LEs->LEs.Length();i++) //Executa todos os objetos
         {
             Entidade* temp = LEs->LEs.getItem(i);
+            if (gerenciador_colid->Colidindo(temp, fase1->chao))
+            {
+                temp->velocidadeVertical = 0;
+                temp->noChao = true;
+            }
+            else
+            {
+                temp->noChao = false;
+            }
             temp->Executar();
             sf::RectangleShape* shape = temp->getSprite();
             gerenciador_graf->window->draw(*shape);
         }
-        if(gerenciador_colid->Colidindo(jogador1,jogador2))
-        {
-            sf::CircleShape shape(100.f);
-            shape.setFillColor(sf::Color::Green);
-            gerenciador_graf->window->draw(shape);
-        }
+        gerenciador_graf->window->draw(*fase1->chao->getSprite());
         gerenciador_graf->window->display();
-
     }
 }

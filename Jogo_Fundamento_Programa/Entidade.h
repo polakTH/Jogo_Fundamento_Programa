@@ -9,7 +9,9 @@ protected:
 public:
 	float x;
 	float y;
+	float velocidadeVertical;
 	bool capturado;
+	bool noChao;
 	Entidade();
 	~Entidade();
 

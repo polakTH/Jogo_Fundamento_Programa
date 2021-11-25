@@ -35,13 +35,9 @@ void Jogador::Move()
         {
             x -= 0.1f;
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && noChao)
         {
-            y -= 0.1f;
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-        {
-            y += 0.1f;
+            velocidadeVertical = -0.1f;
         }
     }
     else
@@ -54,13 +50,9 @@ void Jogador::Move()
         {
             x -= 0.1f;
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && noChao)
         {
-            y -= 0.1f;
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-        {
-            y += 0.1f;
+            velocidadeVertical = -0.1f;
         }
     }
 }

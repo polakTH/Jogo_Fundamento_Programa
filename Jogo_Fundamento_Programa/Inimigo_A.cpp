@@ -77,13 +77,9 @@ void Inimigo_A::Executar()
 		{
 			x -= 0.05f;
 		}
-		if (alvo->y > y)
+		if (alvo->y < y && noChao)
 		{
-			y += 0.05f;
-		}
-		else if (alvo->y < y)
-		{
-			y -= 0.05f;
+			velocidadeVertical = -0.1f;
 		}
 	}
 	Personagem::Executar();

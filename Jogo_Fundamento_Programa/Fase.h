@@ -5,13 +5,16 @@
 #include <SFML/Graphics.hpp>
 #include "Gerenciador_Grafico.h"
 #include "Inimigo_A.h"
+#include "Obstaculo.h"
 class Fase
 {
 private:
 	ListaEntidades *listaEntidades;
 	Jogador* j1;
 	Jogador* j2;
+	
 public:
+	Obstaculo* chao;
 	Fase(Jogador* j1,Jogador* j2,Gerenciador_Grafico* gerenciador);
 	~Fase();
 
