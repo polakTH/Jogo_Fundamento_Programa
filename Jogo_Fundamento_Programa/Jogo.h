@@ -18,6 +18,8 @@ private:
 	Gerenciador_Colisões* gerenciador_colid;
 	Fase* fase1;
 	Menu* menu;
+	int Level;
+	bool doisJogadores;
 public:
 	Jogo();
 	~Jogo();

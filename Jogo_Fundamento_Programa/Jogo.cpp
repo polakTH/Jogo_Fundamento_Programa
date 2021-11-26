@@ -2,14 +2,15 @@
 
 Jogo::Jogo()
 {
-
+    Level = -1;
+    doisJogadores = false;
     gerenciador_graf = new Gerenciador_Grafico();
     jogador1 = new Jogador(true);
     jogador1->setGerenciador(gerenciador_graf);
     jogador2 = new Jogador(false);
     jogador2->setGerenciador(gerenciador_graf);
-    //fase1 = new Fase_1(jogador1, jogador2, gerenciador_graf);
-    menu = new Menu(gerenciador_graf);
+    fase1 = nullptr;
+    menu = new Menu(gerenciador_graf, &Level, &doisJogadores);
     Executar();
 }
 
@@ -30,6 +31,28 @@ void Jogo::Executar()
                 gerenciador_graf->window->close();
         }
         //fase1->Executar();
-        menu->Executar();
+        switch (Level)
+        {
+        default:
+        case -1:
+            menu->Executar();
+            break;
+        case 0:
+            if(fase1 == nullptr)
+            {
+                fase1 = new Fase_1(jogador1, doisJogadores ? jogador2 : nullptr, gerenciador_graf);
+            }
+            fase1->Executar();
+            break;
+        }
+        if((sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && Level != -1) || (jogador1->morto && (jogador2->morto || !doisJogadores)))
+        {
+            Level = -1;
+            fase1 = nullptr;
+            jogador1 = new Jogador(true);
+            jogador1->setGerenciador(gerenciador_graf);
+            jogador2 = new Jogador(false);
+            jogador2->setGerenciador(gerenciador_graf);
+        }
     }
 }
